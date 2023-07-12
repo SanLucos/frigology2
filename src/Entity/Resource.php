@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ResourceRepository::class)]
 class Resource
 {
+    // ========= Properties
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -25,6 +26,13 @@ class Resource
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $unit = null;
+
+    // ======= Getters & Setters
+    
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
